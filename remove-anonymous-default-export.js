@@ -9,7 +9,7 @@ module.exports = function transformer(file, api) {
     const rawFileName = path.match(/index./)
       ? file.path.replace(/\/index/, "").match(/[^/]+$/)[0]
       : file.path.match(/[^/]+$/)[0];
-    // remove trailing extensions
+    // remove extensions
     const fileName = rawFileName.match(/^[^.]+/)[0];
     return pascalcase(fileName);
   };
