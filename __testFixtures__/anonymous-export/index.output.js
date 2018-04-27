@@ -1,5 +1,3 @@
-const AnonymousExport = () => {
-  return <button />;
-};
-
-export default AnonymousExport;
+export default function AnonymousExport() {
+  return <div />;
+}

@@ -1,5 +1,3 @@
-const RemoveAnonymousDefaultExport = () => {
+export default function RemoveAnonymousDefaultExport() {
   return <button />;
-};
-
-export default RemoveAnonymousDefaultExport;
+}
