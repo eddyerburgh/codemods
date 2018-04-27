@@ -1,3 +1,3 @@
-export default function RemoveAnonymousDefaultExport() {
+export default function RemoveAnonymousDefaultExport(someProp) {
   return <button />;
 }

@@ -24,10 +24,13 @@ module.exports = function transformer(file, api) {
   };
 
   root.find(j.ExportDefaultDeclaration).forEach(path => {
+    const constName = getFunctionName(file);
     if (path.value.declaration.type === "ArrowFunctionExpression") {
-      const constName = getFunctionName(file);
       const declaration = createFunction(constName, path.value.declaration);
       path.value.declaration = declaration;
+    }
+    if (path.value.declaration.type === "FunctionDeclaration") {
+      path.value.declaration.id = constName;
     }
   });
 
