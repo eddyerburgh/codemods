@@ -5,7 +5,7 @@ module.exports = function transformer(file, api) {
   const { statement } = j.template;
   const root = j(file.source);
 
-  const getDirName = ({ path }) => {
+  const getFunctionName = ({ path }) => {
     const rawFileName = path.match(/index./)
       ? file.path.replace(/\/index/, "").match(/[^/]+$/)[0]
       : file.path.match(/[^/]+$/)[0];
@@ -25,7 +25,7 @@ module.exports = function transformer(file, api) {
 
   root.find(j.ExportDefaultDeclaration).forEach(path => {
     if (path.value.declaration.type === "ArrowFunctionExpression") {
-      const constName = getDirName(file);
+      const constName = getFunctionName(file);
       const declaration = createFunction(constName, path.value.declaration);
       path.value.declaration = declaration;
     }
