@@ -1,5 +1,3 @@
-var pascalcase = require("pascalcase");
-
 const isVueTestUtilsImport = p => p.value.source.value === "@vue/test-utils";
 const isShallowNamedFn = p => p.value.callee.name === "shallow";
 
